@@ -1,8 +1,19 @@
 import React from 'react';
 import InputFieldComponent from '../../components/input-field';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {signIn} from '../../stores/sign-in/SignInAction';
 
-class SignInContainer extends React.Component {
+interface SignInContainerProps {
+    signIn: typeof signIn
+}
+
+class SignInContainer extends React.Component<SignInContainerProps> {
+
+    signIn() {
+        // this.props.signIn
+    }
+
     render() {
         return (
             <form>
@@ -15,4 +26,9 @@ class SignInContainer extends React.Component {
     }
 }
 
-export default SignInContainer;
+const mapStateToProps = (state: SignInContainerProps) => ({
+    signIn: state.signIn
+});
+
+
+export default connect(mapStateToProps, {signIn})(SignInContainer);
