@@ -1,6 +1,4 @@
-const path = require('path');
-
-module.exports = (config, env) => {
+module.exports = (config) => {
     config.output.libraryTarget = 'amd';
     config.output.filename = 'scripts/[name].js';
     config.output.chunkFilename = 'scripts/[name].js';
