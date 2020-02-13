@@ -1,7 +1,7 @@
-import {SIGN_IN_ERROR, SIGN_IN_SUBMIT, SIGN_IN_SUCCESS, SignIn, SignInActionTypes} from './SignInType';
+import {LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, Login, LoginActionTypes} from './LoginType';
 
-const initialState: SignIn = {
-    submitted: false,
+const initialState: Login = {
+    requested: false,
     success: {
         token: ''
     },
@@ -10,20 +10,20 @@ const initialState: SignIn = {
     }
 };
 
-export function signInReducer(
+export function loginReducer(
     state = initialState,
-    action: SignInActionTypes
-): SignIn {
+    action: LoginActionTypes
+): Login {
     switch (action.type) {
-        case SIGN_IN_SUBMIT:
+        case LOGIN_REQUEST:
             return Object.assign({}, state, {
-                submitted: true
+                requested: true
             });
-        case SIGN_IN_SUCCESS:
+        case LOGIN_SUCCESS:
             return Object.assign({}, state, {
                 success: action.payload
             });
-        case SIGN_IN_ERROR:
+        case LOGIN_FAILURE:
             return Object.assign({}, state, {
                 error: action.payload
             });

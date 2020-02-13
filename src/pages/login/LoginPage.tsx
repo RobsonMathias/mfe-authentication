@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import SignInContainer from "../../containers/sign-in";
+import LoginContainer from '../../containers/login';
 
-class SignInPage extends React.Component {
+class LoginPage extends React.Component {
 
   componentDidMount() {}
 
@@ -11,10 +11,10 @@ class SignInPage extends React.Component {
         <section>
           <h1>Sign In</h1>
           <p>Welcome to Micro frontend Example</p>
-          <SignInContainer/>
+          <LoginContainer/>
         </section>
     );
   }
 }
 
-export default withRouter<any, any>(SignInPage);
+export default withRouter<any, any>(LoginPage);
