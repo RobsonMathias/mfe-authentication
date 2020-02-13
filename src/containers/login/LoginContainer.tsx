@@ -19,8 +19,8 @@ class LoginContainer extends React.Component<LoginContainerProps> {
             <form>
                 <InputFieldComponent/>
                 <InputFieldComponent/>
-                <button type={'submit'}>Access my account</button>
                 <Link to="/forgot-password">Forgot your password?</Link>
+                <button type={'submit'}>Access my account</button>
             </form>
         );
     }
