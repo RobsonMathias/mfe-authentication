@@ -1,25 +1,56 @@
 import React from 'react';
-import InputFieldComponent from '../../components/input-field';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 import {loginService} from '../../stores/login/LoginService';
+import {connect} from 'react-redux';
 
 interface LoginContainerProps {
     login: typeof loginService
 }
 
-class LoginContainer extends React.Component<LoginContainerProps> {
+interface LoginContainerStates {
+    email: string,
+    password: string
+}
 
-    submit() {
-        console.log(this.props.login);
+class LoginContainer extends React.Component<LoginContainerProps, LoginContainerStates> {
+
+    constructor(props: LoginContainerProps) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
+    handleChange(event: any) {
+        const {target} = event;
+        this.setState({[target.name]: event.target.value} as any);
+    }
+
+    handleSubmit(event: any) {
+        this.props.login(this.state.email, this.state.password);
+        event.preventDefault();
+    }
+
+
+
     render() {
+        // @ts-ignore
         return (
-            <form>
-                <InputFieldComponent/>
-                <InputFieldComponent/>
-                <button type={'submit'}>Access my account</button>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    E-mail
+                    <input type='email' name='email' value={this.state.email} onChange={this.handleChange} />
+                </label>
+                <label>
+                    Password
+                    <input type='password' name='password' value={this.state.password} onChange={this.handleChange} />
+                </label>
+                <button type={'button'} onClick={this.handleSubmit}>Access my account</button>
                 <Link to="/forgot-password">Forgot your password?</Link>
             </form>
         );

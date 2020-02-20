@@ -16,6 +16,8 @@ const reactLifecycles = singleSpaReact({
     rootComponent: App,
 });
 
+console.log(reactLifecycles.mount);
+
 export const bootstrap = [reactLifecycles.bootstrap];
 export const mount = [reactLifecycles.mount];
 export const unmount = [reactLifecycles.unmount];

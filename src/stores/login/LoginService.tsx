@@ -8,9 +8,9 @@ const loginService = (
 ) => {
     const payload = {email, password};
     loginRequest(payload);
-    loginApi(email, password)
-        .then((n: LoginSuccessPayload) => loginSuccess(n))
-        .catch((e: LoginFailurePayload) => loginFailure(e));
+    // loginApi(email, password)
+    //     .then((n: LoginSuccessPayload) => loginSuccess(n))
+    //     .catch((e: LoginFailurePayload) => loginFailure(e));
 };
 
 export {loginService};
