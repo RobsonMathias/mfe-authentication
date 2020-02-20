@@ -1,11 +1,10 @@
-import {httpRequest} from '../utils';
+import {LOGIN_REQUEST, LoginPayload} from '../stores/login/LoginType';
+import {http} from '../utils';
 
 const loginApi = (
-    email: string,
-    password: string
+    payload: LoginPayload
 ): Promise<any> => {
-    const payload = {email, password};
-    return httpRequest.get('/v2/auth/user/login', payload)
+    return http.request.get(LOGIN_REQUEST, payload)
 };
 
 export {loginApi};

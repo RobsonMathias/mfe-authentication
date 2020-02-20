@@ -1,1 +1,1 @@
-export {httpRequest} from './HttpRequest';
+export {http} from './HttpRequest';

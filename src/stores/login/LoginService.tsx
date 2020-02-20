@@ -1,16 +1,10 @@
-import {LoginFailurePayload, LoginSuccessPayload} from './LoginType';
-import {loginFailure, loginRequest, loginSuccess} from './LoginAction';
+import {LoginPayload} from './LoginType';
 import {loginApi} from '../../api/AuthenticationApi';
 
 const loginService = (
-    email: string,
-    password: string
+    payload: LoginPayload
 ) => {
-    const payload = {email, password};
-    loginRequest(payload);
-    loginApi(email, password)
-        .then((n: LoginSuccessPayload) => loginSuccess(n))
-        .catch((e: LoginFailurePayload) => loginFailure(e));
+    return loginApi(payload);
 };
 
 export {loginService};

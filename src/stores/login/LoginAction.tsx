@@ -9,30 +9,35 @@ import {
 import {ThunkAction} from 'redux-thunk';
 import {RootState} from '../store.config';
 import {Action} from 'redux';
+import {loginService} from './LoginService';
 
-const loginRequest = (payload: LoginPayload)
-  : ThunkAction<void, RootState, unknown, Action<string>> => async dispatch => {
-    dispatch({
+const request = (payload: LoginPayload) => {
+    return {
         type: LOGIN_REQUEST,
         payload
-    });
+    };
 };
 
-const loginSuccess = (payload: LoginSuccessPayload)
-  : ThunkAction<void, RootState, unknown, Action<string>> => async dispatch => {
-    dispatch({
+const success = (payload: LoginSuccessPayload) => {
+    return {
         type: LOGIN_SUCCESS,
         payload
-    });
+    };
 };
 
-const loginFailure = (payload: LoginFailurePayload)
-  : ThunkAction<void, RootState, unknown, Action<string>> => async dispatch => {
-    dispatch({
+const failure = (payload: LoginFailurePayload) => {
+    return {
         type: LOGIN_FAILURE,
         payload
-    });
+    };
 };
 
+const loginAction = (payload: LoginPayload)
+    : ThunkAction<void, RootState, unknown, Action<string>> => async dispatch => {
+    dispatch(request(payload));
+    loginService(payload)
+        .then((n: LoginSuccessPayload) => success(n))
+        .catch((e: LoginFailurePayload) => failure(e));
+};
 
-export {loginRequest, loginSuccess, loginFailure}
+export {loginAction}
