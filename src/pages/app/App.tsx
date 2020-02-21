@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {store} from '../../stores/store.config';
@@ -8,10 +8,6 @@ import ForgotPasswordPage from '../forgot-password';
 import styles from './App.css';
 
 class App extends React.Component {
-
-    constructor(props: any) {
-        super(props);
-    }
 
     componentDidMount() {
         styles.use();
