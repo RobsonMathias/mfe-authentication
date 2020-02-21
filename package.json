@@ -51,6 +51,7 @@
   },
   "proxy": "http://localhost:3000",
   "devDependencies": {
+    "@rescripts/utilities": "0.0.6",
     "customize-cra": "^0.9.1",
     "rewire": "^4.0.1"
   }
