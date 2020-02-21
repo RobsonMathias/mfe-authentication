@@ -6,4 +6,8 @@ export interface HttpRequest {
     patch(url: string, body: any, query?: any): Promise<any>
 }
 
-export const httpRequest: HttpRequest = window.httpRequest as HttpRequest;
+export const http = {
+    get request(): HttpRequest {
+        return window.Authentication && window.Authentication.httpRequest;
+    }
+};

@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {loginService} from '../../stores/login/LoginService';
 import {connect} from 'react-redux';
+import {loginAction} from '../../stores/login/LoginAction';
 
 interface LoginContainerProps {
-    login: typeof loginService
+    login: typeof loginAction
 }
 
 interface LoginContainerStates {
@@ -32,14 +32,17 @@ class LoginContainer extends React.Component<LoginContainerProps, LoginContainer
     }
 
     handleSubmit(event: any) {
-        this.props.login(this.state.email, this.state.password);
+        const payload = {
+            email: this.state.email,
+            password: this.state.password
+        };
+        this.props.login(payload);
         event.preventDefault();
     }
 
 
 
     render() {
-        // @ts-ignore
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
@@ -50,7 +53,7 @@ class LoginContainer extends React.Component<LoginContainerProps, LoginContainer
                     Password
                     <input type='password' name='password' value={this.state.password} onChange={this.handleChange} />
                 </label>
-                <button type={'button'} onClick={this.handleSubmit}>Access my account</button>
+                <button type={'submit'}>Access my account</button>
                 <Link to="/forgot-password">Forgot your password?</Link>
             </form>
         );
@@ -60,6 +63,8 @@ class LoginContainer extends React.Component<LoginContainerProps, LoginContainer
 const mapStateToProps = (state: LoginContainerProps) => ({
     login: state.login
 });
+const actionCreators = {
+    login: loginAction,
+};
 
-
-export default connect(mapStateToProps, {login: loginService})(LoginContainer);
+export default connect(mapStateToProps, actionCreators)(LoginContainer);

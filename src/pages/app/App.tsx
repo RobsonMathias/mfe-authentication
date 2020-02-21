@@ -13,14 +13,14 @@ class App extends React.Component {
 
     render() {
         return (
-            <Provider store={store}>
-                <div className="AuthenticationApp">
-                    <Router>
-                        <Route path="/" exact component={LoginPage}/>
-                        <Route path="/forgot-password" exact component={ForgotPasswordPage}/>
-                    </Router>
-                </div>
-            </Provider>
+            <div className="AuthenticationApp">
+                <Provider store={store}>
+                        <Router>
+                            <Route path="/" exact component={LoginPage}/>
+                            <Route path="/forgot-password" exact component={ForgotPasswordPage}/>
+                        </Router>
+                </Provider>
+            </div>
         );
     }
 }

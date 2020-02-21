@@ -1,6 +1,6 @@
 {
   "name": "mfe-authentication",
-  "version": "0.0.1-beta",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -51,6 +51,7 @@
   },
   "proxy": "http://localhost:3000",
   "devDependencies": {
+    "@rescripts/utilities": "0.0.6",
     "customize-cra": "^0.9.1",
     "rewire": "^4.0.1"
   }
