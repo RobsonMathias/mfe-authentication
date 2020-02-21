@@ -75,7 +75,7 @@ module.exports = {
         (config) => {
 
             config = addLoaders()(config);
-
+            config.resolve.extensions.push('.scss', '.css');
             config.output.libraryTarget = 'amd';
             config.output.filename = 'scripts/[name].js';
             config.output.chunkFilename = 'scripts/[name].js';

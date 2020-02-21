@@ -5,21 +5,19 @@ import {store} from '../../stores/store.config';
 import LoginPage from '../login';
 import ForgotPasswordPage from '../forgot-password';
 // @ts-ignore
-import styles from  './App.css';
-
+import styles from './App.css';
 
 class App extends React.Component {
 
+    constructor(props: any) {
+        super(props);
+    }
+
     componentDidMount() {
+        styles.use();
     }
 
     render() {
-        useEffect(() => {
-            styles.use();
-            return () => {
-                styles.unuse();
-            };
-        }, []);
 
         return (
             <div className="AuthenticationApp">
