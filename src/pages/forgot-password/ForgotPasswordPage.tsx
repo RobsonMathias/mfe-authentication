@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ForgotPasswordContainer from '../../containers/forgot-password';
+import ForgotPasswordContainer from '../../module/forgot-password';
 
 class ForgotPasswordPage extends React.Component {
 

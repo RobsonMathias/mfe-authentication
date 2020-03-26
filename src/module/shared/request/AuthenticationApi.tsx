@@ -1,5 +1,5 @@
-import {LOGIN_REQUEST, LoginPayload} from '../stores/login/LoginType';
-import {http} from '../utils';
+import {LOGIN_REQUEST, LoginPayload} from '../../login/stores/LoginType';
+import {http} from './index';
 
 const loginApi = (
     payload: LoginPayload

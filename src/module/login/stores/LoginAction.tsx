@@ -7,7 +7,7 @@ import {
     LoginSuccessPayload
 } from './LoginType';
 import {ThunkAction} from 'redux-thunk';
-import {RootState} from '../store.config';
+import {RootState} from '../../shared/stores/store.config';
 import {Action} from 'redux';
 import {loginService} from './LoginService';
 

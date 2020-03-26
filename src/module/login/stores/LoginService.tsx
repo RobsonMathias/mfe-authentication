@@ -1,5 +1,5 @@
 import {LoginPayload} from './LoginType';
-import {loginApi} from '../../api/AuthenticationApi';
+import {loginApi} from '../../shared/request/AuthenticationApi';
 
 const loginService = (
     payload: LoginPayload

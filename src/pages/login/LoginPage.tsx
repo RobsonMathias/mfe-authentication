@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import LoginContainer from '../../containers/login';
+import LoginContainer from '../../module/login';
 
 class LoginPage extends React.Component {
 
