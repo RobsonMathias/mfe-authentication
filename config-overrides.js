@@ -75,10 +75,12 @@ module.exports = {
         (config) => {
 
             config = addLoaders()(config);
+            config.output.publicPath = '/authentication/';
             config.resolve.extensions.push('.scss', '.css');
             config.output.libraryTarget = 'amd';
-            config.output.filename = 'scripts/[name].js';
-            config.output.chunkFilename = 'scripts/[name].js';
+            config.output.filename = 'authentication/scripts/[name].js';
+            config.output.chunkFilename = 'authentication/scripts/[name].js';
+            console.log(config);
             config.optimization.splitChunks = {
                 cacheGroups: {
                     default: false
