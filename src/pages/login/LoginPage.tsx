@@ -9,7 +9,7 @@ class LoginPage extends React.Component {
   render() {
     return (
         <section>
-          <h1>Sign In</h1>
+          <h1>Sign In V2</h1>
           <p>Welcome to Micro frontend Example</p>
           <LoginContainer/>
         </section>
