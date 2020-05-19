@@ -11,7 +11,7 @@ declare global {
 }
 
 
-const simulationInit = window.newrelic.interaction().createTracer('simulation/bootstrap', () => {});
+const simulationInit = window.newrelic.interaction().createTracer('simulation-bootstrap', () => {});
 
 const reactLifecycles = singleSpaReact({
     React,
