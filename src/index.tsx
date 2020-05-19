@@ -11,7 +11,7 @@ declare global {
 }
 
 
-const simulationInit = window.newrelic.interaction().createTracer('simulation-bootstrap', () => {});
+const authenticationInit = window.newrelic.interaction().createTracer('simulation-mounted', (e: any) => console.log(e));
 
 const reactLifecycles = singleSpaReact({
     React,
@@ -27,7 +27,7 @@ export const mount = [
         window.Authentication = {
             httpRequest: customProps.httpRequest
         };
-        simulationInit();
+        authenticationInit();
         return Promise.resolve();
     }
 ];
