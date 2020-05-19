@@ -5,9 +5,13 @@ import App from "./pages/app";
 
 declare global {
     interface Window {
-        Authentication: any
+        Authentication: any,
+        newrelic: any
     }
 }
+
+
+const simulationInit = window.newrelic.interaction().createTracer('simulation/bootstrap', () => {});
 
 const reactLifecycles = singleSpaReact({
     React,
@@ -23,6 +27,7 @@ export const mount = [
         window.Authentication = {
             httpRequest: customProps.httpRequest
         };
+        simulationInit();
         return Promise.resolve();
     }
 ];
